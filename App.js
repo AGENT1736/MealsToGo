@@ -1,17 +1,35 @@
 import { StatusBar as ExpoStatusBar } from "expo-status-bar";
 import React from "react";
-import { ResturantsScreen } from "./src/features/resturants/screens/resturants.screens";
 import { ThemeProvider } from "styled-components/native";
+
+import {
+  useFonts as useOswald,
+  Oswald_400Regular,
+} from "@expo-google-fonts/oswald";
+import { useFonts as useLato, Lato_400Regular } from "@expo-google-fonts/lato";
+
 import { theme } from "./src/infrastructure/theme";
+import { ResturantsScreen } from "./src/features/resturants/screens/resturants.screens";
 
 export default function App() {
+  const [oswaldLoaded] = useOswald({
+    Oswald_400Regular,
+  });
+
+  const [latoLoaded] = useLato({
+    Lato_400Regular,
+  });
+
+  if (!oswaldLoaded || !latoLoaded) {
+    return null;
+  }
+
   return (
     <>
-    <ThemeProvider theme={theme}>
-      <ResturantsScreen />
+      <ThemeProvider theme={theme}>
+        <ResturantsScreen />
       </ThemeProvider>
       <ExpoStatusBar style="auto" />
     </>
   );
 }
-
