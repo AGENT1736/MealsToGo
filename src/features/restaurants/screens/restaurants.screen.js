@@ -2,8 +2,8 @@ import React, { useContext } from "react";
 import { Searchbar } from "react-native-paper";
 import { FlatList } from "react-native";
 import styled from "styled-components/native";
-import { ActivityIndicator} from "react-native-paper";
-import {Colors} from "react-native-paper";
+import { ActivityIndicator, Colors } from "react-native-paper";
+
 import { SafeArea } from "../../../components/utility/safe-area.component";
 import { RestaurantInfoCard } from "../components/restaurant-info-card.component";
 import { Spacer } from "../../../components/spacer/spacer.component";
@@ -35,7 +35,7 @@ export const RestaurantsScreen = () => {
     <SafeArea>
       {isLoading && (
         <LoadingContainer>
-          <Loading size={50} animating={true} color={Colors.blue}/>
+          <Loading size={50} animating={true} color={Colors.blue300} />
         </LoadingContainer>
       )}
       <SearchContainer>
